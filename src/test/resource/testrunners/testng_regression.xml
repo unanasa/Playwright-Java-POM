@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Open Cart Test Regression PW Suite" thread-count="2"
+	parallel="tests" verbose="4">
+	<!-- thread-count: Defines the number of threads to be used for parallel
+	execution. -->
+	<!-- parallel: Specifies the level of parallelism in test execution. -->
+	<!-- verbose: Sets the verbosity level of the test output. -->
+
+
+	<listeners>
+		<listener class-name="com.qa.opencart.listeners.ExtentReportListener" />
+	</listeners>
+
+	<test name="Open Cart Home Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.HomePageTest" />
+		</classes>
+	</test>
+
+	<test name="Open Cart Login Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+
+</suite>
