@@ -59,31 +59,42 @@ public class PlaywrightFactory
 
 		switch (browserName.toLowerCase())
 		{
-		case "chrome":
-			// browser = playwright.chromium().launch(new
-			// LaunchOptions().setChannel("chrome").setHeadless(false));
-			tlBrowser.set(
-					getPlaywright().chromium().launch(new LaunchOptions().setChannel("chrome").setHeadless(false)));
-			break;
 
-		case "firefox":
-			// browser = playwright.firefox().launch(new
-			// BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false)));
-			break;
+		/*
+		 * case "firefox": // browser = playwright.firefox().launch(new //
+		 * BrowserType.LaunchOptions().setHeadless(false));
+		 * tlBrowser.set(getPlaywright().firefox().launch(new
+		 * BrowserType.LaunchOptions().setHeadless(false))); break;
+		 */
 
-		case "safari":
-			// browser = playwright.webkit().launch(new
-			// BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(false)));
-			break;
+		/*
+		 * case "safari": // browser = playwright.webkit().launch(new //
+		 * BrowserType.LaunchOptions().setHeadless(false));
+		 * tlBrowser.set(getPlaywright().webkit().launch(new
+		 * BrowserType.LaunchOptions().setHeadless(false))); break;
+		 */
 
-		case "chromium":
-			// browser = playwright.chromium().launch(new
-			// BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));
-			break;
-
+		/*
+		 * case "chromium": // browser = playwright.chromium().launch(new //
+		 * //BrowserType.LaunchOptions().setHeadless(false));
+		 * tlBrowser.set(getPlaywright().chromium().launch(new
+		 * BrowserType.LaunchOptions().setHeadless(false))); break;
+		 */
+		  
+		
+		  case "chrome": // browser = playwright.chromium().launch(new //
+		  //LaunchOptions().setChannel("chrome").setHeadless(false));
+		  tlBrowser.set(getPlaywright().chromium().launch(new
+		  LaunchOptions().setChannel("chrome").setHeadless(false))); break;
+		 
+		  
+		
+		  case "edge": // browser = playwright.chromium().launch(new //
+		  //BrowserType.LaunchOptions().setHeadless(false));
+		  tlBrowser.set(getPlaywright().chromium().launch(new
+		  LaunchOptions().setChannel("msedge").setHeadless(false))); break;
+		 
+		 
 		default:
 			System.out.println("Please send the correct browser name...");
 			break;
@@ -127,11 +138,9 @@ public class PlaywrightFactory
 	public static String takeScreenshot()
 	{
 		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
-		
-		getPage().screenshot(new Page.ScreenshotOptions()
-				.setPath(Paths.get(path))
-				.setFullPage(true));
-		
+
+		getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
+
 		return path;
 
 	}
